@@ -1,5 +1,5 @@
 //
-//  BookViewController.swift
+//  BookVC.swift
 //  CACartoon
 //
 //  Created by Cary on 2019/7/31.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BookViewController: UIViewController {
+class BookVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
 
         // Do any additional setup after loading the view.
     }
