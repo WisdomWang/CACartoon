@@ -37,6 +37,9 @@
 		4A84221F22F96484009C9692 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84221E22F96484009C9692 /* BaseTableViewCell.swift */; };
 		4A84222122F964C9009C9692 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84222022F964C9009C9692 /* RankTableViewCell.swift */; };
 		4A84222322F9715C009C9692 /* ComicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A84222222F9715C009C9692 /* ComicVC.swift */; };
+		4AA8B28222FA713A0093F203 /* KindCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8B28122FA713A0093F203 /* KindCollectionViewCell.swift */; };
+		4AA8B28622FAA8A40093F203 /* SpecialTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8B28522FAA8A40093F203 /* SpecialTVCell.swift */; };
+		4AA8B28822FAAED70093F203 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8B28722FAAED70093F203 /* WebViewController.swift */; };
 		D6B79DB7B6AE31F0C8DCE3B3 /* Pods_CACartoon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE5A9352E4F66DC59D566DF /* Pods_CACartoon.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,9 @@
 		4A84221E22F96484009C9692 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		4A84222022F964C9009C9692 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		4A84222222F9715C009C9692 /* ComicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicVC.swift; sourceTree = "<group>"; };
+		4AA8B28122FA713A0093F203 /* KindCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindCollectionViewCell.swift; sourceTree = "<group>"; };
+		4AA8B28522FAA8A40093F203 /* SpecialTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialTVCell.swift; sourceTree = "<group>"; };
+		4AA8B28722FAAED70093F203 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6B4373AEF60E2493F1549771 /* Pods-CACartoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CACartoon.debug.xcconfig"; path = "Target Support Files/Pods-CACartoon/Pods-CACartoon.debug.xcconfig"; sourceTree = "<group>"; };
 		76216B021553ADE7335F8A47 /* Pods-CACartoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CACartoon.release.xcconfig"; path = "Target Support Files/Pods-CACartoon/Pods-CACartoon.release.xcconfig"; sourceTree = "<group>"; };
 		AEE5A9352E4F66DC59D566DF /* Pods_CACartoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CACartoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +235,8 @@
 		4A76621122F2B8D100B0C415 /* KindPage */ = {
 			isa = PBXGroup;
 			children = (
-				4A76621222F2B91C00B0C415 /* KindVC.swift */,
+				4AA8B27F22FA70FB0093F203 /* View */,
+				4AA8B28022FA71060093F203 /* Controller */,
 			);
 			path = KindPage;
 			sourceTree = "<group>";
@@ -237,7 +244,8 @@
 		4A76621422F2B93500B0C415 /* BookPage */ = {
 			isa = PBXGroup;
 			children = (
-				4A53025622F18EDB00571CB0 /* BookVC.swift */,
+				4AA8B28322FAA86B0093F203 /* View */,
+				4AA8B28422FAA8760093F203 /* Controller */,
 			);
 			path = BookPage;
 			sourceTree = "<group>";
@@ -261,8 +269,41 @@
 				4A14E19622F4243600B74C60 /* BaseCollectionViewCell.swift */,
 				4A14E1A022F4331600B74C60 /* BaseCollectionReusableView.swift */,
 				4A84221E22F96484009C9692 /* BaseTableViewCell.swift */,
+				4AA8B28722FAAED70093F203 /* WebViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		4AA8B27F22FA70FB0093F203 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AA8B28122FA713A0093F203 /* KindCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4AA8B28022FA71060093F203 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4A76621222F2B91C00B0C415 /* KindVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4AA8B28322FAA86B0093F203 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AA8B28522FAA8A40093F203 /* SpecialTVCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4AA8B28422FAA8760093F203 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4A53025622F18EDB00571CB0 /* BookVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B9E2561504B8EC28C9FCD361 /* Pods */ = {
@@ -462,11 +503,13 @@
 				4A76621722F2D5F800B0C415 /* ComicListVC.swift in Sources */,
 				4A76621322F2B91C00B0C415 /* KindVC.swift in Sources */,
 				4A76620A22F2B7EC00B0C415 /* HomeVIPVC.swift in Sources */,
+				4AA8B28622FAA8A40093F203 /* SpecialTVCell.swift in Sources */,
 				4A14E19A22F427DA00B74C60 /* UCollectionViewAlignedLayout.swift in Sources */,
 				4A53024D22F16E3600571CB0 /* CATabBarVC.swift in Sources */,
 				4A76620822F2B7D400B0C415 /* HomeCommentVC.swift in Sources */,
 				4A14E1A522F437BD00B74C60 /* ArrayExtensions.swift in Sources */,
 				4A14E19D22F42D0300B74C60 /* ComicCollectionViewCell.swift in Sources */,
+				4AA8B28822FAAED70093F203 /* WebViewController.swift in Sources */,
 				4A14E19B22F427DA00B74C60 /* UCollectionViewSectionBackgroundLayout.swift in Sources */,
 				4A14E1A322F433BB00B74C60 /* ComicCollectionHeaderView.swift in Sources */,
 				4A76620E22F2B81D00B0C415 /* HomeRankVC.swift in Sources */,
@@ -477,6 +520,7 @@
 				4A14E19F22F4328300B74C60 /* BoardCollectionViewCell.swift in Sources */,
 				4A53025722F18EDB00571CB0 /* BookVC.swift in Sources */,
 				4A53021D22F145F100571CB0 /* AppDelegate.swift in Sources */,
+				4AA8B28222FA713A0093F203 /* KindCollectionViewCell.swift in Sources */,
 				4A53025522F18E9D00571CB0 /* MyVC.swift in Sources */,
 				4A84221F22F96484009C9692 /* BaseTableViewCell.swift in Sources */,
 				4A14E19522F417A900B74C60 /* LBUModel.swift in Sources */,

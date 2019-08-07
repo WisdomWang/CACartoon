@@ -175,5 +175,20 @@ extension HomeCommentVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
+        let comicList = comicLists[indexPath.section]
+        guard let item = comicList.comics?[indexPath.row] else { return }
+        
+        if comicList.comicType == .billboard {
+            
+        } else {
+            if item.linkType == 2 {
+                guard let url = item.ext?.compactMap({ return $0.key == "url" ? $0.val : nil }).joined() else { return }
+                let vc = WebViewController(url: url)
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                
+            }
+        }
     }
 }
