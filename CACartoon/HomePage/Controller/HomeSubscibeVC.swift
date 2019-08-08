@@ -115,6 +115,10 @@ extension HomeSubscibeVC: UCollectionViewSectionBackgroundLayoutDelegateLayout, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
+        let comicList = subscribeList[indexPath.section]
+        guard let model = comicList.comics?[indexPath.row] else { return }
+        let vc = ComicVC(comicid: model.comicId)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

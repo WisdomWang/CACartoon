@@ -60,6 +60,7 @@ class CATabBarVC: UITabBarController {
         
         nav.navigationBar.tintColor = UIColor.white
         nav.navigationBar.isTranslucent = false
+        nav.navigationBar.topItem!.title = ""
   
     }
     

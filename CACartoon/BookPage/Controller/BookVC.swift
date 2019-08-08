@@ -41,6 +41,7 @@ class BookVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        self.navigationItem.title = "书架"
         setupLayout()
         loadData(more: false)
         

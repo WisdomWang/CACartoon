@@ -40,6 +40,8 @@
 		4AA8B28222FA713A0093F203 /* KindCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8B28122FA713A0093F203 /* KindCollectionViewCell.swift */; };
 		4AA8B28622FAA8A40093F203 /* SpecialTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8B28522FAA8A40093F203 /* SpecialTVCell.swift */; };
 		4AA8B28822FAAED70093F203 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8B28722FAAED70093F203 /* WebViewController.swift */; };
+		4AFBF14D22FBBFD1005A5D0F /* ComicHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFBF14C22FBBFD1005A5D0F /* ComicHeadView.swift */; };
+		4AFBF14F22FBC3E4005A5D0F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFBF14E22FBC3E4005A5D0F /* UIViewExtension.swift */; };
 		D6B79DB7B6AE31F0C8DCE3B3 /* Pods_CACartoon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE5A9352E4F66DC59D566DF /* Pods_CACartoon.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		4AA8B28122FA713A0093F203 /* KindCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindCollectionViewCell.swift; sourceTree = "<group>"; };
 		4AA8B28522FAA8A40093F203 /* SpecialTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialTVCell.swift; sourceTree = "<group>"; };
 		4AA8B28722FAAED70093F203 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		4AFBF14C22FBBFD1005A5D0F /* ComicHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicHeadView.swift; sourceTree = "<group>"; };
+		4AFBF14E22FBC3E4005A5D0F /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		6B4373AEF60E2493F1549771 /* Pods-CACartoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CACartoon.debug.xcconfig"; path = "Target Support Files/Pods-CACartoon/Pods-CACartoon.debug.xcconfig"; sourceTree = "<group>"; };
 		76216B021553ADE7335F8A47 /* Pods-CACartoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CACartoon.release.xcconfig"; path = "Target Support Files/Pods-CACartoon/Pods-CACartoon.release.xcconfig"; sourceTree = "<group>"; };
 		AEE5A9352E4F66DC59D566DF /* Pods_CACartoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CACartoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +142,7 @@
 				4A14E19E22F4328300B74C60 /* BoardCollectionViewCell.swift */,
 				4A14E1A222F433BB00B74C60 /* ComicCollectionHeaderView.swift */,
 				4A84222022F964C9009C9692 /* RankTableViewCell.swift */,
+				4AFBF14C22FBBFD1005A5D0F /* ComicHeadView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 		4A76620F22F2B83900B0C415 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
+				4AFBF14E22FBC3E4005A5D0F /* UIViewExtension.swift */,
 				4A14E1A422F437BD00B74C60 /* ArrayExtensions.swift */,
 				4A53025A22F1932200571CB0 /* SystemCommon.swift */,
 				4A53021C22F145F100571CB0 /* AppDelegate.swift */,
@@ -498,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AFBF14F22FBC3E4005A5D0F /* UIViewExtension.swift in Sources */,
 				4A14E1A122F4331600B74C60 /* BaseCollectionReusableView.swift in Sources */,
 				4A84222122F964C9009C9692 /* RankTableViewCell.swift in Sources */,
 				4A76621722F2D5F800B0C415 /* ComicListVC.swift in Sources */,
@@ -509,6 +516,7 @@
 				4A76620822F2B7D400B0C415 /* HomeCommentVC.swift in Sources */,
 				4A14E1A522F437BD00B74C60 /* ArrayExtensions.swift in Sources */,
 				4A14E19D22F42D0300B74C60 /* ComicCollectionViewCell.swift in Sources */,
+				4AFBF14D22FBBFD1005A5D0F /* ComicHeadView.swift in Sources */,
 				4AA8B28822FAAED70093F203 /* WebViewController.swift in Sources */,
 				4A14E19B22F427DA00B74C60 /* UCollectionViewSectionBackgroundLayout.swift in Sources */,
 				4A14E1A322F433BB00B74C60 /* ComicCollectionHeaderView.swift in Sources */,

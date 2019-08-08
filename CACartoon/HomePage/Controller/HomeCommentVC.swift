@@ -23,6 +23,7 @@ class HomeCommentVC: UIViewController {
         cycleScrollView.backgroundColor = UIColor.background
         cycleScrollView.placeHolderImage = UIImage(named: "normal_placeholder")
         cycleScrollView.pageControlBottom = 20
+        cycleScrollView.lldidSelectItemAtIndex = didSelectBanner(index:)
         return cycleScrollView
     }()
 
@@ -76,6 +77,28 @@ class HomeCommentVC: UIViewController {
             make.top.equalToSuperview()
             make.left.right.equalToSuperview()
             make.bottom.equalTo(self.view.snp.bottom).offset(barH)
+        }
+    }
+    
+    private func didSelectBanner(index: NSInteger) {
+        let item = galleryItems[index]
+        if item.linkType == 2 {
+            guard let url = item.ext?.compactMap({
+                return $0.key == "url" ? $0.val : nil
+            }).joined() else {
+                return
+            }
+            let vc = WebViewController(url: url)
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            guard let comicIdString = item.ext?.compactMap({
+                return $0.key == "comicId" ? $0.val : nil
+            }).joined(),
+                
+                let comicId = Int(comicIdString) else { return }
+            let vc = ComicVC(comicid: comicId)
+            vc.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
@@ -187,7 +210,9 @@ extension HomeCommentVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIC
                 vc.hidesBottomBarWhenPushed = true
                 navigationController?.pushViewController(vc, animated: true)
             } else {
-                
+                let vc = ComicVC(comicid: item.comicId)
+                vc.hidesBottomBarWhenPushed = true
+                navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

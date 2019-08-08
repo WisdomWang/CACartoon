@@ -29,6 +29,7 @@ class KindVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        self.navigationItem.title = "分类"
         setupLayout()
         setupLoadData()
     }

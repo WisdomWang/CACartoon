@@ -41,6 +41,7 @@ class MyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        self.navigationItem.title = "我的"
         setupLayout()
 
     }
