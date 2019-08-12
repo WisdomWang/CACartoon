@@ -31,10 +31,11 @@ class ComicVC: UIViewController {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: xScreenWidth, height: 80))
         let footButton = UIButton()
         footButton.backgroundColor = UIColor.navColor
-        footButton.setTitle("开始阅读", for: .normal)
+        footButton.setTitle("阅读第一话", for: .normal)
         footButton.setTitleColor(UIColor.white, for: .normal)
         footButton.layer.cornerRadius = 20
         footButton.layer.masksToBounds = true
+        footButton.addTarget(self, action: #selector(gotoReadPage), for: .touchUpInside)
         headerView.addSubview(footButton)
         footButton.snp.makeConstraints{ make in
             
@@ -71,6 +72,33 @@ class ComicVC: UIViewController {
         loadData()
     }
     
+    @objc func gotoReadPage (){
+        
+  
+    let vc = ChapterReadVC(detailStatic: self.detailStatic, selectIndex: 0)
+    self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let alert = UIAlertController(title: "", message: "请选择", preferredStyle: .actionSheet)
+//        let actionCancel = UIAlertAction(title: "取消", style: .cancel) { (UIAlertAction) in
+//        }
+//        let actionRead = UIAlertAction(title: "从头阅读", style: .default) { (UIAlertAction) in
+//
+//            let vc = ChapterReadVC(detailStatic: self.detailStatic, selectIndex: 0)
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+//        let actionChapter = UIAlertAction(title: "按章节阅读", style: .default) { (UIAlertAction) in
+//            let vc = ChapterVC()
+//            vc.detailStatic = self.detailStatic
+//            vc.detailRealtime = self.detailRealtime
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+//        alert.addAction(actionCancel)
+//        alert.addAction(actionRead)
+//        alert.addAction(actionChapter)
+//        alert.view.tintColor = UIColor(hex: "#333333")
+//        self.present(alert, animated: true, completion: nil)
+    }
+    
     private func loadData() {
         
         let grpup = DispatchGroup()
@@ -102,9 +130,7 @@ class ComicVC: UIViewController {
     private func setupLayout(){
         view.addSubview(tableView)
         tableView.snp.makeConstraints{ make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.view.snp.bottom).offset(barH)
+            make.edges.equalToSuperview()
         }
     }
 }
@@ -160,7 +186,7 @@ extension ComicVC:UITableViewDataSource,UITableViewDelegate {
             let cell = UITableViewCell.init(style: .default, reuseIdentifier: xDetailThreeCell)
             cell.textLabel?.textColor = UIColor(hex: "#333333")
             cell.accessoryType = .disclosureIndicator
-            cell.textLabel?.text = "目录"
+            cell.textLabel?.text = "去目录"
             cell.selectionStyle = .none
             return cell
         }
@@ -171,6 +197,18 @@ extension ComicVC:UITableViewDataSource,UITableViewDelegate {
             cell.textLabel?.text = "去评论区"
             cell.selectionStyle = .none
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 {
+            
+            let vc = ChapterVC()
+            vc.detailStatic = self.detailStatic
+            vc.detailRealtime = self.detailRealtime
+            vc.navigationItem.title = self.detailStatic?.comic?.name
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

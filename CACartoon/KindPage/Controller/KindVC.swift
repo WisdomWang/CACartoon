@@ -71,7 +71,16 @@ extension KindVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource
         return CGSize(width: width, height: width * 0.75 + 30)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let model = rankList[indexPath.row]
+        let vc = ComicListVC(argCon: model.argCon,
+                                        argName: model.argName,
+                                        argValue: model.argValue)
+        vc.title = model.sortName
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 

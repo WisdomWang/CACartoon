@@ -12,7 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    // 申明手机屏幕旋转方向
+    var orientation: UIInterfaceOrientationMask = .portrait
+    // 3.支持屏幕旋转
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return orientation
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = CATabBarVC()
         window?.makeKeyAndVisible()
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedString.Key:UIColor.clear], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedString.Key:UIColor.clear], for: .highlighted)
         
         return true
     }
@@ -47,6 +56,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
 
+extension UIApplication {
+    // 4. 强制旋转屏幕
+    class func changeOrientationTo(landscapeRight: Bool) {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        if landscapeRight == true {
+            delegate.orientation = .landscapeRight
+            UIApplication.shared.supportedInterfaceOrientations(for: delegate.window)
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+        } else {
+            delegate.orientation = .portrait
+            UIApplication.shared.supportedInterfaceOrientations(for: delegate.window)
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        }
+    }
 }
 

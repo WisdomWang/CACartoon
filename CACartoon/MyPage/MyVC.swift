@@ -29,11 +29,21 @@ class MyVC: UIViewController {
                  ["icon":"mine_setting", "title": "设置"]]]
     }()
     
+    lazy var headerView:UIImageView = {
+        
+        let headerView = UIImageView(frame: CGRect(x: 0, y: 0, width: xScreenWidth, height: xScreenWidth * 0.5))
+        headerView.image = UIImage(named: "mine_bg_for_girl")
+        headerView.contentMode = .scaleAspectFill
+        return headerView
+        
+    }()
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = UIColor.background
         tableView.delegate = self
         tableView.dataSource = self
+        //tableView.tableHeaderView = self.headerView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         return tableView
     }()
@@ -43,15 +53,22 @@ class MyVC: UIViewController {
         view.backgroundColor = UIColor.white
         self.navigationItem.title = "我的"
         setupLayout()
-
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.setNavigationBarHidden(true, animated: true)
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
     
     private func setupLayout() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints{ make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.view.snp.bottom).offset(barH)
+            make.edges.equalToSuperview()
         }
     }
 }
@@ -93,4 +110,19 @@ extension MyVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        let point = scrollView.contentOffset
+//        if point.y < 0 {
+//
+//            var rect = headerView.frame
+//            rect.origin.y = point.y
+//            rect.size.height = xScreenWidth * 0.5 - point.y
+//            headerView.frame = rect
+//        }
+//        else {
+//            headerView.frame = CGRect(x: 0, y: 0, width: xScreenWidth, height: xScreenWidth * 0.5)
+//        }
+//    }
 }

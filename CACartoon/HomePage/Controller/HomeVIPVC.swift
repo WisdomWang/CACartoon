@@ -85,9 +85,14 @@ extension HomeVIPVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIColle
             )
             head.titleLabel.text = comicList.itemTitle
             head.moreButton.isHidden = !comicList.canMore
-//            head.moreActionClosure { [weak self] in
-//
-//            }
+            head.moreActionClosure {
+                let vc = ComicListVC(argCon: comicList.argCon,
+                                     argName: comicList.argName,
+                                     argValue: comicList.argValue)
+                vc.title = comicList.itemTitle
+                vc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             return head
     }
     
@@ -118,6 +123,7 @@ extension HomeVIPVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIColle
         let comicList = vipList[indexPath.section]
         guard let model = comicList.comics?[indexPath.row] else { return }
         let vc = ComicVC(comicid: model.comicId)
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
 }

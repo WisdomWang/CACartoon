@@ -54,14 +54,17 @@ class CATabBarVC: UITabBarController {
         
         let nav = UINavigationController(rootViewController: childController)
         addChild(nav)
+
         nav.navigationBar.barTintColor = UIColor.navColor
         let dict:NSDictionary = [NSAttributedString.Key.foregroundColor: UIColor.white,NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
         nav.navigationBar.titleTextAttributes = dict as? [NSAttributedString.Key : AnyObject]
-        
         nav.navigationBar.tintColor = UIColor.white
         nav.navigationBar.isTranslucent = false
-        nav.navigationBar.topItem!.title = ""
-  
+     
+       // nav.navigationItem.backBarButtonItem?.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedString.Key:UIColor.clear], for: .normal)
+     
+        //nav.navigationItem.hidesBackButton = true
+      //  nav.navigationBar.topItem?.title = ""
     }
     
 

@@ -1,14 +1,15 @@
+
 //
-//  ComicListVC.swift
+//  UpdateListVC.swift
 //  CACartoon
 //
-//  Created by Cary on 2019/8/1.
+//  Created by Cary on 2019/8/12.
 //  Copyright © 2019 Cary. All rights reserved.
 //
 
 import UIKit
 
-class ComicListVC: UIViewController {
+class UpdateListVC: UIViewController {
 
     private var argCon: Int = 0
     private var argName: String?
@@ -16,7 +17,7 @@ class ComicListVC: UIViewController {
     private var page: Int = 1
     
     private var comicList = [LBUComicModel]()
-    private var spinnerName: String?
+    private var spinnerName: String = ""
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -24,14 +25,13 @@ class ComicListVC: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(cellType: ComicTVCell.self)
+        tableView.register(cellType: UpdateTVCell.self)
         tableView.es.addPullToRefresh {
             self.loadData(more: false)
         }
         tableView.es.addInfiniteScrolling {
             self.loadData(more: true)
         }
-        tableView.uempty = UEmptyView { [weak self] in self?.loadData(more: false) }
         return tableView
     }()
     
@@ -41,14 +41,17 @@ class ComicListVC: UIViewController {
         self.argName = argName
         self.argValue = argValue
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
         setupLayout()
         loadData(more: false)
+        
     }
-    private func loadData(more: Bool) {
-        page = (more ? ( page + 1) : 1)
+    
+    private func loadData(more:Bool) {
+        
+        page = (more ? (page+1):1)
         ApiLoadingProvider.request(LBUApi.comicList(argCon: argCon, argName: argName ?? "", argValue: argValue, page: page),
                                    model: LBUComicListModel.self) { [weak self] (returnData) in
                                     self?.tableView.es.stopPullToRefresh()
@@ -58,36 +61,34 @@ class ComicListVC: UIViewController {
                                         self?.tableView.es.stopLoadingMore()
                                     }
                                     
-                                    self?.tableView.uempty?.allowShow = true
-                                    
-                                    if !more { self?.comicList.removeAll() }
+                                    if more == false { self?.comicList.removeAll() }
                                     self?.comicList.append(contentsOf: returnData?.comics ?? [])
                                     self?.tableView.reloadData()
                                     
-                                    
                                     guard let defaultParameters = returnData?.defaultParameters else { return }
                                     self?.argCon = defaultParameters.defaultArgCon
-                                    self?.spinnerName = defaultParameters.defaultConTagType
+                                    guard let defaultConTagType = defaultParameters.defaultConTagType else { return }
+                                    self?.spinnerName = defaultConTagType
         }
     }
     
-    private func setupLayout() {
+    private func setupLayout(){
         view.addSubview(tableView)
         tableView.snp.makeConstraints{ make in
             make.edges.equalToSuperview()
         }
     }
+  
 }
 
-extension ComicListVC: UITableViewDelegate, UITableViewDataSource {
+extension UpdateListVC:UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comicList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ComicTVCell.self)
-        cell.spinnerName = spinnerName
-        cell.indexPath = indexPath
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UpdateTVCell.self)
         cell.model = comicList[indexPath.row]
         return cell
     }
@@ -97,9 +98,9 @@ extension ComicListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = comicList[indexPath.row]
+        
+        let model:LBUComicModel = comicList[indexPath.row]
         let vc = ComicVC(comicid: model.comicId)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-

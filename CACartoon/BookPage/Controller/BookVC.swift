@@ -49,7 +49,7 @@ class BookVC: UIViewController {
     }
     private func loadData(more: Bool) {
         page = (more ? ( page + 1) : 1)
-        ApiLoadingProvider.request(LBUApi.special(argCon: argCon, page: page), model: LBUComicListModel.self) { [weak self] (returnData) in
+        ApiLoadingProvider.request(LBUApi.special(argCon: 4, page: page), model: LBUComicListModel.self) { [weak self] (returnData) in
             
             self?.tableView.es.stopPullToRefresh()
             if returnData?.hasMore == false {

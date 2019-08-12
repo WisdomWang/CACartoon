@@ -45,9 +45,7 @@ class HomeRankVC: UIViewController{
             make.left.right.equalToSuperview()
             make.bottom.equalTo(self.view.snp.bottom).offset(barH)
         }
-        
     }
-
 }
 
 extension HomeRankVC: UITableViewDelegate, UITableViewDataSource {
@@ -67,6 +65,13 @@ extension HomeRankVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
+        let model = rankList[indexPath.row]
+        let vc = ComicListVC(argCon: model.argCon,
+                             argName: model.argName,
+                             argValue: model.argValue)
+        vc.title = "\(model.title!)榜"
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

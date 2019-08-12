@@ -160,20 +160,42 @@ extension HomeCommentVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIC
                    // print(result)
             }
             )
+        
+            if comicList.comicType == .thematic {
+                headerView.moreButton.isHidden = true
+            } else {
+                headerView.moreButton.isHidden = false
+            }
             
             headerView.titleLabel.text = comicList.itemTitle
-//            headerView.moreActionClosure { [weak self] in
-//                if comicList.comicType == .thematic {
-//
-//                }
-//                else if comicList.comicType == .animation {
-//
-//                } else if comicList.comicType == .update {
-//
-//                } else {
-//
-//                }
-//            }
+            headerView.moreActionClosure {
+                if comicList.comicType == .thematic {
+                    
+                }
+                else if comicList.comicType == .animation {
+                    
+                    let vc = WebViewController(url: "http://m.u17.com/wap/cartoon/list")
+                    vc.title = "动画"
+                    vc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                } else if comicList.comicType == .update {
+                    
+                    let vc = UpdateListVC(argCon: comicList.argCon, argName: comicList.argName, argValue: comicList.argValue)
+                    vc.navigationItem.title = comicList.itemTitle
+                    vc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                } else {
+                    
+                    let vc = ComicListVC(argCon: comicList.argCon,
+                                                    argName: comicList.argName,
+                                                    argValue: comicList.argValue)
+                    vc.title = comicList.itemTitle
+                    vc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
             return headerView
     }
     
@@ -202,7 +224,12 @@ extension HomeCommentVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIC
         guard let item = comicList.comics?[indexPath.row] else { return }
         
         if comicList.comicType == .billboard {
-            
+            let vc = ComicListVC(argCon: comicList.argCon,
+                                 argName: comicList.argName,
+                                 argValue: comicList.argValue)
+            vc.title = comicList.itemTitle
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
         } else {
             if item.linkType == 2 {
                 guard let url = item.ext?.compactMap({ return $0.key == "url" ? $0.val : nil }).joined() else { return }

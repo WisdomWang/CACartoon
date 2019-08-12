@@ -22,8 +22,8 @@ class HomeMainVC: TabmanViewController {
         self.dataSource = self
         let bar = TMBar.ButtonBar()
         bar.backgroundColor = UIColor.navColor
-        bar.layout.interButtonSpacing = 60
-        bar.indicator.weight = .light
+        bar.layout.interButtonSpacing = 30
+        bar.indicator.weight = .medium
         bar.indicator.backgroundColor = UIColor.white
         bar.indicator.cornerStyle = .eliptical
         bar.fadesContentEdges = true
@@ -35,8 +35,36 @@ class HomeMainVC: TabmanViewController {
             button.selectedTintColor = UIColor.white
         }
         
+        let searchBtn = UIButton()
+        searchBtn.setImage(UIImage(named: "nav_search"), for: .normal)
+        searchBtn.addTarget(self, action: #selector(gotoSeatchView), for: .touchUpInside)
+        
         bar.layout.transitionStyle = .snap
         addBar(bar, dataSource: self, at: .navigationItem(item: navigationItem))
+        
+        bar.addSubview(searchBtn)
+        searchBtn.snp.makeConstraints { make in
+            
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-20)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal:-200,vertical:0), for: .default)
+    }
+    
+    @objc func gotoSeatchView () {
+        
+        let vc = SearchVC()
+        vc.hidesBottomBarWhenPushed = true
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = .moveIn
+        transition.subtype = .fromTop
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
 
