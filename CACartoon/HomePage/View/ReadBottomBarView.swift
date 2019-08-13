@@ -26,7 +26,7 @@ class ReadBottomBarView: UIView {
     
     lazy var lightButton: UIButton = {
         let lightButton = UIButton(type: .system)
-        lightButton.setImage(UIImage(named: "readerMenu_luminance")?.withRenderingMode(.alwaysOriginal), for: .normal)
+       // lightButton.setImage(UIImage(named: "readerMenu_luminance")?.withRenderingMode(.alwaysOriginal), for: .normal)
         return lightButton
     }()
     
@@ -39,6 +39,7 @@ class ReadBottomBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+       // menuSlider.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,12 +47,13 @@ class ReadBottomBarView: UIView {
     }
     
     private func setupUI() {
-        addSubview(menuSlider)
-        menuSlider.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 40, bottom: 10, right: 40))
-            make.height.equalTo(30)
-            
-        }
+       // addSubview(menuSlider)
+        
+//        menuSlider.snp.makeConstraints { make in
+//            make.left.right.top.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 40, bottom: 10, right: 40))
+//            make.height.equalTo(30)
+//
+//        }
         
         addSubview(deviceDirectionButton)
         addSubview(lightButton)
@@ -59,20 +61,21 @@ class ReadBottomBarView: UIView {
         
         deviceDirectionButton.snp.makeConstraints { make in
             
-            make.top.equalTo(menuSlider.snp.bottom).offset(10)
+            //make.top.equalTo(menuSlider.snp.bottom).offset(10)
+            make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(60)
             make.bottom.equalToSuperview()
         }
         
         lightButton.snp.makeConstraints { make in
-            
-            make.top.equalTo(menuSlider.snp.bottom).offset(10)
+            make.top.equalToSuperview().offset(10)
+           // make.top.equalTo(menuSlider.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         chapterButton.snp.makeConstraints { make in
-            
-            make.top.equalTo(menuSlider.snp.bottom).offset(10)
+            make.top.equalToSuperview().offset(10)
+            //make.top.equalTo(menuSlider.snp.bottom).offset(10)
             make.right.equalToSuperview().offset(-60)
             make.bottom.equalToSuperview()
         }

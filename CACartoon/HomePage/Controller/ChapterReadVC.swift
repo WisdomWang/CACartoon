@@ -193,6 +193,26 @@ class ChapterReadVC: UIViewController {
 
     
     @objc func changeChapter(_ button: UIButton) {
+        
+        let chapterAlert = ChapterView(frame: .zero)
+        chapterAlert.detailStatic = self.detailStatic
+        chapterAlert.collectionView.reloadData()
+        UIView.animate(withDuration: 1.0) {
+             self.view.insertSubview(chapterAlert, aboveSubview: self.view)
+        }
+
+        chapterAlert.pushToRead = { index  in
+            
+            chapterAlert.removeView()
+            self.selectIndex = index
+            self.previousIndex = self.selectIndex - 1
+            self.nextIndex = self.selectIndex + 1
+            self.loadData(with: self.selectIndex, isPreious: false, needClear: true)
+        }
+        
+        chapterAlert.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     private func setupLayout() {
@@ -223,7 +243,7 @@ class ChapterReadVC: UIViewController {
         view.addSubview(bottomBar)
         bottomBar.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(backScrollView)
-            make.height.equalTo(120)
+            make.height.equalTo(80)
         }
     }
 }

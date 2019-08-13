@@ -139,7 +139,7 @@ extension ComicVC:UITableViewDataSource,UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 3;
+        return 2;
     }
     
     

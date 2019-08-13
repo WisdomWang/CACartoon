@@ -37,6 +37,8 @@
 		4A53025522F18E9D00571CB0 /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53025422F18E9D00571CB0 /* MyVC.swift */; };
 		4A53025722F18EDB00571CB0 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53025622F18EDB00571CB0 /* BookVC.swift */; };
 		4A53025B22F1932200571CB0 /* SystemCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53025A22F1932200571CB0 /* SystemCommon.swift */; };
+		4A6BB952230296FD009CD5B7 /* aboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6BB951230296FD009CD5B7 /* aboutVC.swift */; };
+		4A6BB9542302A419009CD5B7 /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6BB9532302A419009CD5B7 /* ChapterView.swift */; };
 		4A6E5C7D23013AA8003F8528 /* UpdateListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E5C7C23013AA8003F8528 /* UpdateListVC.swift */; };
 		4A6E5C7F23013AF8003F8528 /* UpdateTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E5C7E23013AF8003F8528 /* UpdateTVCell.swift */; };
 		4A6E5C812301439A003F8528 /* UEmptyDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E5C802301439A003F8528 /* UEmptyDataSet.swift */; };
@@ -112,6 +114,8 @@
 		4A53025422F18E9D00571CB0 /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
 		4A53025622F18EDB00571CB0 /* BookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
 		4A53025A22F1932200571CB0 /* SystemCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCommon.swift; sourceTree = "<group>"; };
+		4A6BB951230296FD009CD5B7 /* aboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutVC.swift; sourceTree = "<group>"; };
+		4A6BB9532302A419009CD5B7 /* ChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterView.swift; sourceTree = "<group>"; };
 		4A6E5C7C23013AA8003F8528 /* UpdateListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateListVC.swift; sourceTree = "<group>"; };
 		4A6E5C7E23013AF8003F8528 /* UpdateTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTVCell.swift; sourceTree = "<group>"; };
 		4A6E5C802301439A003F8528 /* UEmptyDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UEmptyDataSet.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				4A118A5622FD49720072D353 /* ReadTopBarView.swift */,
 				4A118A5822FD4A5A0072D353 /* ReadBottomBarView.swift */,
 				4A6E5C7E23013AF8003F8528 /* UpdateTVCell.swift */,
+				4A6BB9532302A419009CD5B7 /* ChapterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				4A53025422F18E9D00571CB0 /* MyVC.swift */,
+				4A6BB951230296FD009CD5B7 /* aboutVC.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -543,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6BB952230296FD009CD5B7 /* aboutVC.swift in Sources */,
 				4AFBF14F22FBC3E4005A5D0F /* UIViewExtension.swift in Sources */,
 				4A14E1A122F4331600B74C60 /* BaseCollectionReusableView.swift in Sources */,
 				4A84222122F964C9009C9692 /* RankTableViewCell.swift in Sources */,
@@ -571,6 +578,7 @@
 				4A76620E22F2B81D00B0C415 /* HomeRankVC.swift in Sources */,
 				4A53025B22F1932200571CB0 /* SystemCommon.swift in Sources */,
 				4A14E19722F4243600B74C60 /* BaseCollectionViewCell.swift in Sources */,
+				4A6BB9542302A419009CD5B7 /* ChapterView.swift in Sources */,
 				4A76620C22F2B80700B0C415 /* HomeSubscibeVC.swift in Sources */,
 				4A14E19322F415C300B74C60 /* LBUAPI.swift in Sources */,
 				4A14E19F22F4328300B74C60 /* BoardCollectionViewCell.swift in Sources */,
