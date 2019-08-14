@@ -312,10 +312,10 @@
 		4A84221D22F9309D009C9692 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				4A14E19922F427DA00B74C60 /* UCollectionViewSectionBackgroundLayout.swift */,
+				4A14E19822F427DA00B74C60 /* UCollectionViewAlignedLayout.swift */,
 				4A14E19222F415C300B74C60 /* LBUAPI.swift */,
 				4A14E19422F417A900B74C60 /* LBUModel.swift */,
-				4A14E19822F427DA00B74C60 /* UCollectionViewAlignedLayout.swift */,
-				4A14E19922F427DA00B74C60 /* UCollectionViewSectionBackgroundLayout.swift */,
 				4A53024C22F16E3600571CB0 /* CATabBarVC.swift */,
 				4A14E19622F4243600B74C60 /* BaseCollectionViewCell.swift */,
 				4A14E1A022F4331600B74C60 /* BaseCollectionReusableView.swift */,
@@ -770,7 +770,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QAA4P965T4;
 				INFOPLIST_FILE = CACartoon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -788,7 +790,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QAA4P965T4;
 				INFOPLIST_FILE = CACartoon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

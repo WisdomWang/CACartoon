@@ -62,7 +62,4 @@ extension aboutVC:UITableViewDelegate,UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-    
-    
-    
 }

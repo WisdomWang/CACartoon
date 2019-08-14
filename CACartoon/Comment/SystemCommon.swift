@@ -28,7 +28,7 @@ var isFullScreen: Bool {
 
 let navH: CGFloat = isFullScreen ? 88.0:64.0  //是否是刘海屏的导航高
 let barH: CGFloat = isFullScreen ? 83.0:49.0  //是否是刘海屏的 tabBar 的高
-let statusBarH :CGFloat = UIApplication.shared.statusBarFrame.size.height
+let statusBarH :CGFloat = UIApplication.shared.statusBarFrame.size.height  //状态栏高度
 let bottomSafeH:CGFloat = isFullScreen ? 34.0:0.0   //底部安全区域高度
 
 

@@ -13,7 +13,6 @@ class CATabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         tabBar.isTranslucent = false
         setupLayout()
     }
@@ -60,22 +59,5 @@ class CATabBarVC: UITabBarController {
         nav.navigationBar.titleTextAttributes = dict as? [NSAttributedString.Key : AnyObject]
         nav.navigationBar.tintColor = UIColor.white
         nav.navigationBar.isTranslucent = false
-     
-       // nav.navigationItem.backBarButtonItem?.setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedString.Key:UIColor.clear], for: .normal)
-     
-        //nav.navigationItem.hidesBackButton = true
-      //  nav.navigationBar.topItem?.title = ""
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

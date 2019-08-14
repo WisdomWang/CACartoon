@@ -50,7 +50,7 @@ class ChapterView: UIView {
         
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints{ make in
-          //  make.edges.equalToSuperview()
+            
             make.top.equalToSuperview().offset(xScreenHeight/2)
             make.left.right.bottom.equalToSuperview()
         }
@@ -112,9 +112,6 @@ extension ChapterView:UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         
-//        if String(describing: touch.view?.classForCoder) == "UITableViewCellContentView" {
-//            return false
-//        }
         if (touch.view?.isDescendant(of: self.collectionView))! {
             return false
         } else {
