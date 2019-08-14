@@ -10,14 +10,20 @@
 
 import Moya
 import HandyJSON
+import PKHUD
 
 let LoadingPlugin = NetworkActivityPlugin { (type, target) in
     guard let vc = topVC else { return }
     switch type {
-    case .began: break
+    case .began:
+        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width:100.0, height: 100.0)))
+        PKHUD.sharedHUD.dimsBackground = true
+        PKHUD.sharedHUD.show()
+        break
 
-    case .ended: break
-
+    case .ended:
+        PKHUD.sharedHUD.hide(animated: true)
+        break
     }
 }
 

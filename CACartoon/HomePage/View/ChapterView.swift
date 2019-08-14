@@ -51,7 +51,7 @@ class ChapterView: UIView {
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints{ make in
             
-            make.top.equalToSuperview().offset(xScreenHeight/2)
+            make.top.equalToSuperview().offset(xScreenHeight/3)
             make.left.right.bottom.equalToSuperview()
         }
     }

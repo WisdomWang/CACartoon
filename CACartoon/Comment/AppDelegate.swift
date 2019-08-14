@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 键盘处理
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "完成"
+        IQKeyboardManager.shared.toolbarTintColor = UIColor(hex: "#333333")
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white

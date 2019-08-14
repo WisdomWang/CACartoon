@@ -10,8 +10,6 @@
 import UIKit
 import Moya
 
-
-
 class SearchVC: UIViewController {
 
     private var currentRequest: Cancellable?
