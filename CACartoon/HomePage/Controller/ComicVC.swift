@@ -139,7 +139,7 @@ extension ComicVC:UITableViewDataSource,UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2;
+        return 3;
     }
     
     
@@ -208,6 +208,14 @@ extension ComicVC:UITableViewDataSource,UITableViewDelegate {
             vc.detailStatic = self.detailStatic
             vc.detailRealtime = self.detailRealtime
             vc.navigationItem.title = self.detailStatic?.comic?.name
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if indexPath.section == 2 {
+            
+            let vc = CommentVC()
+            vc.detailStatic = self.detailStatic
+            vc.navigationItem.title = "评论"
             navigationController?.pushViewController(vc, animated: true)
         }
     }

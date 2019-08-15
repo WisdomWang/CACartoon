@@ -41,6 +41,7 @@ extension UIColor{
     }
     class var navColor: UIColor {
         return UIColor(hex: "#68DA96")
+       // return UIColor(hex: "#A2CC70")
     }
     
 }

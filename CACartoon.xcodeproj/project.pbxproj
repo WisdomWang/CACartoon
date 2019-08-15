@@ -27,6 +27,7 @@
 		4A14E1A322F433BB00B74C60 /* ComicCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A14E1A222F433BB00B74C60 /* ComicCollectionHeaderView.swift */; };
 		4A14E1A522F437BD00B74C60 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A14E1A422F437BD00B74C60 /* ArrayExtensions.swift */; };
 		4A1C251E2304FD3700356A89 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C251D2304FD3700356A89 /* NavigationController.swift */; };
+		4A1C25202305361300356A89 /* CommentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C251F2305361300356A89 /* CommentTVCell.swift */; };
 		4A200A5822F809D600FAC019 /* HomeMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A200A5722F809D600FAC019 /* HomeMainVC.swift */; };
 		4A53021D22F145F100571CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53021C22F145F100571CB0 /* AppDelegate.swift */; };
 		4A53022222F145F100571CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A53022022F145F100571CB0 /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		4A14E1A222F433BB00B74C60 /* ComicCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionHeaderView.swift; sourceTree = "<group>"; };
 		4A14E1A422F437BD00B74C60 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		4A1C251D2304FD3700356A89 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		4A1C251F2305361300356A89 /* CommentTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTVCell.swift; sourceTree = "<group>"; };
 		4A200A5722F809D600FAC019 /* HomeMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainVC.swift; sourceTree = "<group>"; };
 		4A53021922F145F100571CB0 /* CACartoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CACartoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A53021C22F145F100571CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				4A118A5622FD49720072D353 /* ReadTopBarView.swift */,
 				4A118A5822FD4A5A0072D353 /* ReadBottomBarView.swift */,
 				4A6E5C7E23013AF8003F8528 /* UpdateTVCell.swift */,
+				4A1C251F2305361300356A89 /* CommentTVCell.swift */,
 				4A6BB9532302A419009CD5B7 /* ChapterView.swift */,
 			);
 			path = View;
@@ -559,6 +562,7 @@
 				4A76621722F2D5F800B0C415 /* ComicListVC.swift in Sources */,
 				4A76621322F2B91C00B0C415 /* KindVC.swift in Sources */,
 				4A6E5C7D23013AA8003F8528 /* UpdateListVC.swift in Sources */,
+				4A1C25202305361300356A89 /* CommentTVCell.swift in Sources */,
 				4A118A5322FD46A70072D353 /* ReadCollectionViewCell.swift in Sources */,
 				4A76620A22F2B7EC00B0C415 /* HomeVIPVC.swift in Sources */,
 				4A6E5C8323014E7A003F8528 /* SearchVC.swift in Sources */,
@@ -773,6 +777,7 @@
 			baseConfigurationReference = 6B4373AEF60E2493F1549771 /* Pods-CACartoon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QAA4P965T4;
 				INFOPLIST_FILE = CACartoon/Info.plist;
@@ -784,7 +789,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZexueEducation.CACartoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -793,6 +798,7 @@
 			baseConfigurationReference = 76216B021553ADE7335F8A47 /* Pods-CACartoon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QAA4P965T4;
 				INFOPLIST_FILE = CACartoon/Info.plist;
@@ -804,7 +810,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZexueEducation.CACartoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
