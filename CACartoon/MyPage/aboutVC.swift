@@ -11,7 +11,7 @@ import UIKit
 class aboutVC: UIViewController {
 
     private lazy var textArr:Array = {
-        return ["简书地址","GitHub地址","我的邮箱"]
+        return ["简书","GitHub","我的邮箱"]
     }()
     
     private lazy var detailTextArr:Array = {
@@ -60,6 +60,18 @@ extension aboutVC:UITableViewDelegate,UITableViewDataSource {
         cell.detailTextLabel?.textColor = UIColor(hex: "#999999")
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
         cell.selectionStyle = .none
+        if indexPath.row != 2 {
+            cell.accessoryType = .disclosureIndicator
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 || indexPath.row == 1 {
+            
+            let vc = WebViewController(url: detailTextArr[indexPath.row])
+            vc.navigationItem.title = textArr[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

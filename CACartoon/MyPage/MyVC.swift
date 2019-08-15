@@ -29,7 +29,7 @@ class MyVC: UIViewController {
                //  ["icon":"mine_mail", "title": "我要反馈"],
                 // ["icon":"mine_judge", "title": "给我们评分"],
                  ["icon":"mine_author", "title": "关于"],
-                 ["icon":"mine_setting", "title": "设置"]
+                 ["icon":"mine_setting", "title": "清除缓存"]
             ]
         ]
     }()
@@ -86,13 +86,6 @@ class MyVC: UIViewController {
 
 extension MyVC:UITableViewDelegate,UITableViewDataSource {
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let  view = UIView(frame: CGRect(x: 0, y: 0, width: xScreenWidth, height: 20))
-//        view.backgroundColor = UIColor.background
-//        return view
-//    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return myArray.count
     }
@@ -103,14 +96,28 @@ extension MyVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell")
-        cell?.accessoryType = .disclosureIndicator
-        cell?.selectionStyle = .none
-        let sectionArray = myArray[indexPath.section]
-        let dict: [String: String] = sectionArray[indexPath.row]
-        cell?.imageView?.image =  UIImage(named: dict["icon"] ?? "")
-        cell?.textLabel?.text = dict["title"]
-        return cell!
+   
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell")
+            cell?.accessoryType = .disclosureIndicator
+            cell?.selectionStyle = .none
+            let sectionArray = myArray[indexPath.section]
+            let dict: [String: String] = sectionArray[indexPath.row]
+            cell?.imageView?.image =  UIImage(named: dict["icon"] ?? "")
+            cell?.textLabel?.text = dict["title"]
+            return cell!
+        } else {
+            let cell = UITableViewCell.init(style: .value1, reuseIdentifier: "Mycell")
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+            let sectionArray = myArray[indexPath.section]
+            let dict: [String: String] = sectionArray[indexPath.row]
+            cell.imageView?.image =  UIImage(named: dict["icon"] ?? "")
+            cell.textLabel?.text = dict["title"]
+            cell.detailTextLabel?.text = getCacheSize()
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -119,6 +126,23 @@ extension MyVC:UITableViewDelegate,UITableViewDataSource {
         let vc = aboutVC()
         vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true) }
+        else if indexPath.row == 1 {
+            
+                    let alert = UIAlertController(title: "您确定清除么", message: "", preferredStyle: .alert)
+                    let actionCancel = UIAlertAction(title: "取消", style: .cancel) { (UIAlertAction) in
+                    }
+                    let actionRead = UIAlertAction(title: "确认", style: .default) { (UIAlertAction) in
+            
+                        clearCache()
+                        let cell = tableView.cellForRow(at: indexPath)
+                        cell?.detailTextLabel?.text = getCacheSize()
+                    }
+                    alert.addAction(actionCancel)
+                    alert.addAction(actionRead)
+                    DispatchQueue.main.async { () -> Void in
+                        self.present(alert, animated: true, completion: nil)
+                    }
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

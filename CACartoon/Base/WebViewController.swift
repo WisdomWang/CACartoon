@@ -10,14 +10,14 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController {
-
+    
     var request: URLRequest!
     
     lazy var webView: WKWebView = {
         let webView = WKWebView()
         webView.allowsBackForwardNavigationGestures = true
         webView.navigationDelegate = self
-        webView.uiDelegate = self;
+        webView.uiDelegate = self
         return webView
     }()
     
@@ -43,6 +43,7 @@ class WebViewController: UIViewController {
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
         webView.load(request)
+          
     }
     
     private func setupLayout() {
@@ -72,7 +73,7 @@ class WebViewController: UIViewController {
     }
 }
 
-extension WebViewController: WKNavigationDelegate, WKUIDelegate,UINavigationBarDelegate {
+extension WebViewController: WKNavigationDelegate, WKUIDelegate {
     
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
@@ -89,31 +90,17 @@ extension WebViewController: WKNavigationDelegate, WKUIDelegate,UINavigationBarD
         progressView.setProgress(0.0, animated: false)
         navigationItem.title = title ?? (webView.title ?? webView.url?.host)
     }
+}
+
+extension WebViewController:NavigationControllerBackButtonDelegate {
     
-    func navigationShouldPopOnBackButton() {
-        
-        if webView.canGoBack {
+    func shouldPopOnBackButtonPress() -> Bool {
+        var shouldPop = true
+        if(webView.canGoBack == true){
             webView.goBack()
-        } else {
-            navigationController?.popViewController(animated: true)
+            shouldPop = false
         }
-    }
-    
-    func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
-        
-        if (self.navigationController?.viewControllers.count ?? 0) < (navigationBar.items?.count ?? 0) {
-            return true
-        }
-            // 取消 pop 后，复原返回按钮的状态
-            /*__系统返回按钮会随着返回动画而边淡__*/
-            for subView in navigationBar.subviews {
-                if subView.alpha < 1.0 {
-                    UIView.animate(withDuration: 0.25, animations: {
-                        subView.alpha = 1.0
-                    })
-                }
-            }
-        navigationShouldPopOnBackButton()
-        return false
+        return shouldPop
     }
 }
+
