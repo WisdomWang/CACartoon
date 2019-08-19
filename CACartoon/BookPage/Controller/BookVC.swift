@@ -44,8 +44,6 @@ class BookVC: UIViewController {
         self.navigationItem.title = "书架"
         setupLayout()
         loadData(more: false)
-        
-
     }
     private func loadData(more: Bool) {
         page = (more ? ( page + 1) : 1)

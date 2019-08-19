@@ -39,7 +39,7 @@ class CATabBarVC: UITabBarController {
         
         let myVC = MyVC()
         addChildController(childController: myVC,
-                           title: "我的",
+                           title: "",
                            image: UIImage(named: "tab_mine"),
                            selectedImage: UIImage(named: "tab_mine_S"))
     }

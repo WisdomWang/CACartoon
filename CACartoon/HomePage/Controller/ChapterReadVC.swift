@@ -146,6 +146,23 @@ class ChapterReadVC: UIViewController {
                 } else {
                     self.chapterList.append(chapter)
                 }
+                guard chapter.image_list != nil else {
+                    
+                    let alert = UIAlertController(title: "该章节暂不支持阅读哟", message: "", preferredStyle: .alert)
+                    let actionRead = UIAlertAction(title: "知道了", style: .default) { (UIAlertAction) in
+                        
+                        for controller in self.navigationController!.viewControllers {
+                            if controller.isKind(of: ChapterVC.self) {
+                               self.navigationController?.popViewController(animated: true)
+                            } else {
+                               
+                            }
+                        }
+                    }
+                    alert.addAction(actionRead)
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
                 self.collectionView.reloadData()
                 guard let finished = finished else { return }
                 finished(true)

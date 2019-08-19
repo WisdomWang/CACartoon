@@ -41,7 +41,6 @@ class aboutVC: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
 }
 
 extension aboutVC:UITableViewDelegate,UITableViewDataSource {
@@ -68,7 +67,6 @@ extension aboutVC:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 || indexPath.row == 1 {
-            
             let vc = WebViewController(url: detailTextArr[indexPath.row])
             vc.navigationItem.title = textArr[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)

@@ -17,7 +17,6 @@ class SearchVC: UIViewController {
     private var relative: [LBUSearchItemModel]?
     private var comics: [LBUComicModel]?
     
-    
     private  lazy var searchBar: UITextField = {
         let searchBar = UITextField()
         searchBar.backgroundColor = UIColor.white
@@ -41,7 +40,6 @@ class SearchVC: UIViewController {
         searchTableView.delegate = self
         searchTableView.dataSource = self
         searchTableView.register(cellType: BaseTableViewCell.self)
-        //searchTableView.tableFooterView = UIView()
         return searchTableView
     }()
     
@@ -50,7 +48,6 @@ class SearchVC: UIViewController {
         resultTableView.delegate = self
         resultTableView.dataSource = self
         resultTableView.register(cellType: ComicTVCell.self)
-       // resultTableView.tableFooterView = UIView()
         return resultTableView
     }()
     
@@ -187,5 +184,4 @@ extension SearchVC:UITableViewDelegate,UITableViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
 }
