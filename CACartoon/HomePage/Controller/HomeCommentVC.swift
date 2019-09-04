@@ -9,6 +9,8 @@
 import UIKit
 import LLCycleScrollView
 import SnapKit
+import Alamofire
+import EmptyDataSet_Swift
 
 class HomeCommentVC: UIViewController {
 
@@ -54,6 +56,7 @@ class HomeCommentVC: UIViewController {
         view.backgroundColor = UIColor.background
         setupLayout()
         setupLoadData()
+        NetworkMonitoring()
     }
     
     private func setupLoadData () {
@@ -81,6 +84,9 @@ class HomeCommentVC: UIViewController {
     }
     
     private func didSelectBanner(index: NSInteger) {
+        guard galleryItems.count != 0 else {
+            return
+        }
         let item = galleryItems[index]
         if item.linkType == 2 {
             guard let url = item.ext?.compactMap({
@@ -99,6 +105,30 @@ class HomeCommentVC: UIViewController {
             let vc = ComicVC(comicid: comicId)
             vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func NetworkMonitoring() {
+        
+        let net = NetworkReachabilityManager()
+        net?.startListening()
+        net?.listener = { status in
+            switch status{
+            case .notReachable:
+                print("此时没有网络")
+                self.collectionView.emptyDataSetDelegate = self
+                self.collectionView.emptyDataSetSource = self
+                self.collectionView.reloadData()
+                
+            case .unknown:
+                print("未知")
+            case .reachable(.ethernetOrWiFi):
+                print("WiFi")
+                self.setupLoadData()
+            case .reachable(.wwan):
+                print("移动网络")
+                self.setupLoadData()
+            }
         }
     }
 }
@@ -244,3 +274,26 @@ extension HomeCommentVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIC
         }
     }
 }
+
+extension HomeCommentVC:EmptyDataSetDelegate,EmptyDataSetSource {
+
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView, for state: UIControl.State) -> NSAttributedString? {
+        
+        let text =  "网络不给力，请点击重试哦~"
+        let attStr = NSMutableAttributedString(string: text)
+        attStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 15.0), range: NSRange(location: 0, length: text.count))
+        attStr.addAttribute(.foregroundColor, value: UIColor.lightGray, range: NSRange(location: 0, length: text.count))
+        attStr.addAttribute(.foregroundColor, value:UIColor.navColor, range: NSRange(location: 7, length: 4))
+        return attStr
+    }
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
+        return -150
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView, didTapButton button: UIButton) {
+        setupLoadData()
+    }
+}
+
+
