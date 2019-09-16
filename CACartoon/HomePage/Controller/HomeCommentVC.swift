@@ -23,7 +23,7 @@ class HomeCommentVC: UIViewController {
         
         let cycleScrollView = LLCycleScrollView()
         cycleScrollView.backgroundColor = UIColor.background
-        cycleScrollView.placeHolderImage = UIImage(named: "normal_placeholder")
+        cycleScrollView.placeHolderImage = UIImage(named: "normal_placeholder_h")
         cycleScrollView.pageControlBottom = 20
         cycleScrollView.lldidSelectItemAtIndex = didSelectBanner(index:)
         return cycleScrollView

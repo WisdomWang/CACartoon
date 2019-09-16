@@ -51,7 +51,7 @@ class BoardCollectionViewCell: BaseCollectionViewCell {
             let url = URL(string: model.cover!)
             iconView.kf.setImage(
                 with: url,
-                placeholder: nil,
+                placeholder: UIImage(named: "normal_placeholder_v"),
                 options: [.transition(.fade(1)), .loadDiskFileSynchronously],
                 progressBlock: { receivedSize, totalSize in
             },
