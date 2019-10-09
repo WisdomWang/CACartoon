@@ -24,6 +24,7 @@ class HomeVIPVC: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cellType: ComicCollectionViewCell.self)
         collectionView.register(supplementaryViewType: ComicCollectionHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
+        collectionView.register(supplementaryViewType: BaseCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionFooter)
         return collectionView
     }()
     
@@ -70,6 +71,9 @@ extension HomeVIPVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            
             let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: ComicCollectionHeaderView.self)
             let comicList = vipList[indexPath.section]
             let url = URL(string: comicList.titleIconUrl!)
@@ -94,6 +98,12 @@ extension HomeVIPVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIColle
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             return head
+        }
+        
+        else {
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: BaseCollectionReusableView.self)
+            return footerView
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

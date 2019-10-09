@@ -24,6 +24,7 @@ class HomeSubscibeVC: UIViewController {
         cw.showsVerticalScrollIndicator = false
         cw.register(cellType: ComicCollectionViewCell.self)
         cw.register(supplementaryViewType: ComicCollectionHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
+        cw.register(supplementaryViewType: BaseCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionFooter)
         return cw
     }()
     
@@ -70,6 +71,8 @@ extension HomeSubscibeVC: UCollectionViewSectionBackgroundLayoutDelegateLayout, 
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
+        if kind == UICollectionView.elementKindSectionHeader {
+            
             let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: ComicCollectionHeaderView.self)
             let comicList = subscribeList[indexPath.section]
             let url = URL(string: comicList.titleIconUrl!)
@@ -94,6 +97,12 @@ extension HomeSubscibeVC: UCollectionViewSectionBackgroundLayoutDelegateLayout, 
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             return head
+        }
+        
+        else {
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: BaseCollectionReusableView.self)
+            return footerView
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
