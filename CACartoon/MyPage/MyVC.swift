@@ -42,6 +42,7 @@ class MyVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = headerView
         tableView.rowHeight = 60
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         return tableView
@@ -51,8 +52,6 @@ class MyVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         view.addSubview(tableView)
-        view.addSubview(headerView)
-        tableView.tableHeaderView = headerView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,7 +133,7 @@ extension MyVC:UITableViewDelegate,UITableViewDataSource {
             headerImage.frame = CGRect(x: -(imageWidth * f - imageWidth) * 0.5, y: imageOffsetY, width: imageWidth * f, height: totalOffset)
         }
         if imageOffsetY > 0 {
-            
+
             headerView.frame = CGRect(x: 0, y: 0, width: xScreenWidth, height:headerViewH)
         }
     }

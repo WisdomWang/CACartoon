@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import PKHUD
 import Kingfisher
+import ESPullToRefresh
 
 let xScreenWidth = UIScreen.main.bounds.size.width
 let xScreenHeight = UIScreen.main.bounds.size.height
@@ -33,7 +34,6 @@ let barH: CGFloat = isFullScreen ? 83.0:49.0  //是否是刘海屏的 tabBar 的
 let statusBarH :CGFloat = UIApplication.shared.statusBarFrame.size.height  //状态栏高度
 let bottomSafeH:CGFloat = isFullScreen ? 34.0:0.0   //底部安全区域高度
 
-
 extension UIColor{
     
     class var background: UIColor {
@@ -42,8 +42,7 @@ extension UIColor{
     class var navColor: UIColor {
         return UIColor(hex: "#68DA96")
        // return UIColor(hex: "#A2CC70")
-    }
-    
+    }    
 }
 
 var topVC: UIViewController? {
@@ -126,13 +125,3 @@ public func getCacheSize() -> String {
          PKHUD.sharedHUD.hide(animated: true)
     }
 }
-
-
-
-
-
-
-
-
-
-

@@ -37,7 +37,7 @@ class HomeCommentVC: UIViewController {
         collectionView.backgroundColor = UIColor.background
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.showsVerticalScrollIndicator = false
+       // collectionView.showsVerticalScrollIndicator = false
         collectionView.alwaysBounceVertical = true
         collectionView.contentInset = UIEdgeInsets(top: xScreenWidth * 0.5, left: 0, bottom: 0, right: 0)
         collectionView.addSubview(bannerView)

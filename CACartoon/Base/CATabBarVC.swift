@@ -51,7 +51,7 @@ class CATabBarVC: UITabBarController {
             childController.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         }
         
-        let nav = NavigationController(rootViewController: childController)
+        let nav = UINavigationController(rootViewController: childController)
         addChild(nav)
 
         nav.navigationBar.barTintColor = UIColor.navColor

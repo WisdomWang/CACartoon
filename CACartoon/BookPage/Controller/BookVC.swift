@@ -30,6 +30,7 @@ class BookVC: UIViewController {
         tableView.es.addInfiniteScrolling {
             self.loadData(more: true)
         }
+       
         return tableView
     }()
     

@@ -17,7 +17,7 @@ class HomeRankVC: UIViewController{
         tableView.backgroundColor = UIColor.background
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
+        //tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none

@@ -62,10 +62,31 @@ class WebViewController: UIViewController {
     private func configNavigationBar() {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_reload"), style: .plain, target: self, action: #selector(reload))
+        
+        navigationItem.hidesBackButton = true
+        let back =  UIBarButtonItem(image: UIImage(named: "nav_back_white"), style: .done, target:self, action: #selector(backFun))
+        let close = UIBarButtonItem(image: UIImage(named: "nav_close"), style: .done, target:self, action: #selector(closeFun))
+        navigationItem.leftBarButtonItems = [back,close]
+        navigationItem.leftItemsSupplementBackButton = true
     }
     
     @objc func reload() {
         webView.reload()
+    }
+    
+    @objc func backFun() {
+        
+        if(webView.canGoBack == true){
+            webView.goBack()
+        }
+        else {
+            reload()
+        }
+    }
+    
+    @objc func closeFun() {
+        
+        navigationController?.popViewController(animated: true)
     }
     
     deinit {
@@ -91,16 +112,3 @@ extension WebViewController: WKNavigationDelegate, WKUIDelegate {
         navigationItem.title = title ?? (webView.title ?? webView.url?.host)
     }
 }
-
-extension WebViewController:NavigationControllerBackButtonDelegate {
-    
-    func shouldPopOnBackButtonPress() -> Bool {
-        var shouldPop = true
-        if(webView.canGoBack == true){
-            webView.goBack()
-            shouldPop = false
-        }
-        return shouldPop
-    }
-}
-
