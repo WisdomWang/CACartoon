@@ -11,11 +11,11 @@ import UIKit
 class aboutVC: UIViewController {
 
     private lazy var textArr:Array = {
-        return ["简书","GitHub","我的邮箱"]
+        return ["简书","GitHub","我的邮箱","手机号"]
     }()
     
     private lazy var detailTextArr:Array = {
-        return ["https://www.jianshu.com/u/77851f4c0f5b","https://github.com/WisdomWang","294814110@qq.com"]
+        return ["https://www.jianshu.com/u/77851f4c0f5b","https://github.com/WisdomWang","294814110@qq.com","15238032652"]
     }()
     
     lazy var tableView: UITableView = {
