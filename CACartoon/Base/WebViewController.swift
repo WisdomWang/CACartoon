@@ -36,14 +36,10 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupLayout()
         configNavigationBar()
-        
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
-        
-        webView.load(request)
-          
+        webView.load(request)  
     }
     
     private func setupLayout() {
