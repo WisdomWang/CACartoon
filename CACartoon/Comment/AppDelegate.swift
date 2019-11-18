@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    
     // 申明手机屏幕旋转方向
     var orientation: UIInterfaceOrientationMask = .portrait
     // 3.支持屏幕旋转
@@ -25,11 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // 键盘处理
-        IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "完成"
-        IQKeyboardManager.shared.toolbarTintColor = UIColor(hex: "#333333")
+        setKryboard()
         
+        //设置根视图
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.rootViewController = CATabBarVC()
@@ -39,6 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes([kCTForegroundColorAttributeName as NSAttributedString.Key:UIColor.clear], for: .highlighted)
         
         return true
+    }
+    
+    func setKryboard(){
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "完成"
+        IQKeyboardManager.shared.toolbarTintColor = UIColor(hex: "#333333")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
