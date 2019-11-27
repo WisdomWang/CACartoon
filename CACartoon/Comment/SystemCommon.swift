@@ -15,6 +15,7 @@ import ESPullToRefresh
 let xScreenWidth = UIScreen.main.bounds.size.width
 let xScreenHeight = UIScreen.main.bounds.size.height
 
+//是否刘海儿屏
 var isFullScreen: Bool {
     if #available(iOS 11, *) {
         guard let w = UIApplication.shared.delegate?.window, let unwrapedWindow = w else {
@@ -36,15 +37,19 @@ let bottomSafeH:CGFloat = isFullScreen ? 34.0:0.0   //底部安全区域高度
 
 extension UIColor{
     
+    //View背景色
     class var background: UIColor {
         return UIColor(hex: "#f8f8f8")
     }
+    
+    //导航栏背景色
     class var navColor: UIColor {
         return UIColor(hex: "#68DA96")
        // return UIColor(hex: "#A2CC70")
     }    
 }
 
+//顶部视图
 var topVC: UIViewController? {
     var resultVC: UIViewController?
     resultVC = _topVC(UIApplication.shared.keyWindow?.rootViewController)
