@@ -17,7 +17,6 @@ class HomeRankVC: UIViewController{
         tableView.backgroundColor = UIColor.background
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
-        //tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -42,8 +41,7 @@ class HomeRankVC: UIViewController{
     private func setupLayout() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints{ make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
+            make.top.left.right.equalToSuperview()
             make.bottom.equalTo(self.view.snp.bottom).offset(barH)
         }
     }
