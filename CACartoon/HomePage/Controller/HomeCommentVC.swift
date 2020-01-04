@@ -78,8 +78,7 @@ class HomeCommentVC: UIViewController {
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints{ make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
+            make.top.left.right.equalToSuperview()
             make.bottom.equalTo(self.view.snp.bottom).offset(barH)
         }
     }
