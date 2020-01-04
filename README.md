@@ -1,1 +1,1 @@
-比较完整的开源swift漫画项目，MVC架构、SnapKit页面布局、Moya+HandyJson网络数据处理、Kingfisher图片加载等。
+比较完整的开源swift漫画项目，MVC架构、SnapKit页面布局、Moya+HandyJson网络数据处理、Kingfisher图片加载等，仅供参考与学习。
