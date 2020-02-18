@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // 申明手机屏幕旋转方向
     var orientation: UIInterfaceOrientationMask = .portrait
-    // 3.支持屏幕旋转
+    // 支持屏幕旋转
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return orientation
     }
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension UIApplication {
-    // 4. 强制旋转屏幕
+    //强制旋转屏幕
     class func changeOrientationTo(landscapeRight: Bool) {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
         if landscapeRight == true {
