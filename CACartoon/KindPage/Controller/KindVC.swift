@@ -21,7 +21,6 @@ class KindVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.alwaysBounceVertical = true
-        //collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cellType: KindCollectionViewCell.self)
         return collectionView
     }()
