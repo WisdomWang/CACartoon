@@ -21,7 +21,6 @@ class HomeVIPVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.alwaysBounceVertical = true
-       // collectionView.showsVerticalScrollIndicator = false
         collectionView.register(cellType: ComicCollectionViewCell.self)
         collectionView.register(supplementaryViewType: ComicCollectionHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
         collectionView.register(supplementaryViewType: BaseCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionFooter)
