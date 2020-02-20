@@ -73,7 +73,6 @@ class ChapterReadVC: UIViewController {
         lt.minimumInteritemSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: lt)
         collectionView.backgroundColor = UIColor.background
-        //collectionView.showsVerticalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(cellType: ReadCollectionViewCell.self)
