@@ -25,7 +25,6 @@ class ChapterVC: UIViewController {
         collectionView.backgroundColor = UIColor.white
         collectionView.delegate = self
         collectionView.dataSource = self
-        //collectionView.showsVerticalScrollIndicator = false
         collectionView.alwaysBounceVertical = true
         collectionView.register(supplementaryViewType: ChapterHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
         collectionView.register(cellType: ChapterCollectionViewCell.self)
