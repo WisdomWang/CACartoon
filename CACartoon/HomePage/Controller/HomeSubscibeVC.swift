@@ -21,7 +21,6 @@ class HomeSubscibeVC: UIViewController {
         cw.delegate = self
         cw.dataSource = self
         cw.alwaysBounceVertical = true
-        //cw.showsVerticalScrollIndicator = false
         cw.register(cellType: ComicCollectionViewCell.self)
         cw.register(supplementaryViewType: ComicCollectionHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
         cw.register(supplementaryViewType: BaseCollectionReusableView.self, ofKind: UICollectionView.elementKindSectionFooter)
