@@ -34,7 +34,6 @@ class ComicHeadView: UIView {
     lazy var bgView: UIImageView = {
         let bgView = UIImageView()
         bgView.isUserInteractionEnabled = true
-        //bgView.contentMode = .scaleAspectFill
         bgView.blurView.setup(style: .dark, alpha: 1).enable()
         return bgView
     }()
