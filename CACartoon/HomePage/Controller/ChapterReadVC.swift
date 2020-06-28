@@ -7,8 +7,29 @@
 //
 
 import UIKit
+import ESPullToRefresh
 
 class ChapterReadVC: UIViewController {
+    
+    //下拉 上拉刷新
+    var header: ESRefreshHeaderAnimator {
+        get {
+            let h = ESRefreshHeaderAnimator.init(frame: CGRect.zero)
+            h.pullToRefreshDescription = "下拉刷新"
+            h.releaseToRefreshDescription = "松开获取最新数据"
+            h.loadingDescription = "下拉刷新..."
+            return h
+        }
+    }
+    var footer: ESRefreshFooterAnimator {
+        get {
+            let f = ESRefreshFooterAnimator.init(frame: CGRect.zero)
+            f.loadingMoreDescription = "上拉加载更多"
+            f.noMoreDataDescription = "数据已加载完"
+            f.loadingDescription = "加载更多..."
+            return f
+        }
+    }
 
     private var isBarHidden: Bool = false {
         didSet {
@@ -76,13 +97,13 @@ class ChapterReadVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(cellType: ReadCollectionViewCell.self)
-        collectionView.es.addPullToRefresh {
+        collectionView.es.addPullToRefresh(animator:header) {
             let previousIndex = self.previousIndex
             self.loadData(with: previousIndex, isPreious: true, needClear: false, finished: { (Bool) in
                 self.previousIndex = previousIndex - 1
             })
         }
-        collectionView.es.addInfiniteScrolling {
+        collectionView.es.addInfiniteScrolling(animator:footer) {
             let nextIndex = self.nextIndex
             self.loadData(with: nextIndex, isPreious: false, needClear: false, finished: { (Bool) in
                 self.nextIndex = nextIndex + 1

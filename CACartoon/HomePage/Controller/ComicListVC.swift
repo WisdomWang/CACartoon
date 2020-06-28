@@ -7,9 +7,30 @@
 //
 
 import UIKit
+import ESPullToRefresh
 
 class ComicListVC: UIViewController {
 
+     //下拉 上拉刷新
+    var header: ESRefreshHeaderAnimator {
+        get {
+            let h = ESRefreshHeaderAnimator.init(frame: CGRect.zero)
+            h.pullToRefreshDescription = "下拉刷新"
+            h.releaseToRefreshDescription = "松开获取最新数据"
+            h.loadingDescription = "下拉刷新..."
+            return h
+        }
+    }
+    var footer: ESRefreshFooterAnimator {
+        get {
+            let f = ESRefreshFooterAnimator.init(frame: CGRect.zero)
+            f.loadingMoreDescription = "上拉加载更多"
+            f.noMoreDataDescription = "数据已加载完"
+            f.loadingDescription = "加载更多..."
+            return f
+        }
+    }
+    
     private var argCon: Int = 0
     private var argName: String?
     private var argValue: Int = 0
@@ -25,10 +46,10 @@ class ComicListVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(cellType: ComicTVCell.self)
-        tableView.es.addPullToRefresh {
+        tableView.es.addPullToRefresh(animator: header) {
             self.loadData(more: false)
         }
-        tableView.es.addInfiniteScrolling {
+        tableView.es.addInfiniteScrolling(animator: footer) {
             self.loadData(more: true)
         }
         tableView.uempty = UEmptyView { [weak self] in self?.loadData(more: false) }
