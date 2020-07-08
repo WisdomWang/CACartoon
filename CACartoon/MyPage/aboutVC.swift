@@ -59,7 +59,7 @@ extension aboutVC:UITableViewDelegate,UITableViewDataSource {
         cell.detailTextLabel?.textColor = UIColor(hex: "#999999")
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
         cell.selectionStyle = .none
-        if indexPath.row != 2 {
+        if indexPath.row == 0 || indexPath.row == 1 {
             cell.accessoryType = .disclosureIndicator
         }
         return cell
