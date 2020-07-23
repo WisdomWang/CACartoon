@@ -13,7 +13,7 @@ class CommentTVCell: BaseTableViewCell {
     private lazy var iconView: UIImageView = {
         let iconView = UIImageView()
         iconView.contentMode = .scaleAspectFill
-        iconView.layer.cornerRadius = 20
+        iconView.layer.cornerRadius = iconView.frame.size.width/2
         iconView.layer.masksToBounds = true
         return iconView
     }()
@@ -62,7 +62,7 @@ class CommentTVCell: BaseTableViewCell {
             let url = URL(string: viewModel.model!.face!)
             iconView.kf.setImage(
                 with: url,
-                placeholder: nil,
+                placeholder: UIImage.init(named: "mine_author"),
                 options: [.transition(.fade(1)), .loadDiskFileSynchronously],
                 progressBlock: { receivedSize, totalSize in
             },

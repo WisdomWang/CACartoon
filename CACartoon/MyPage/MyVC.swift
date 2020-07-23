@@ -107,7 +107,7 @@ extension MyVC:UITableViewDelegate,UITableViewDataSource {
                     let alert = UIAlertController(title: "您确定清除么", message: "", preferredStyle: .alert)
                     let actionCancel = UIAlertAction(title: "取消", style: .cancel) { (UIAlertAction) in
                     }
-                    let actionRead = UIAlertAction(title: "确认", style: .default) { (UIAlertAction) in
+                    let actionRead = UIAlertAction(title: "确认", style: .destructive) { (UIAlertAction) in
             
                         clearCache()
                         let cell = tableView.cellForRow(at: indexPath)

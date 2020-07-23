@@ -184,7 +184,7 @@ extension HomeCommentVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIC
             let url = URL(string: comicList.newTitleIconUrl!)
             headerView.iconView.kf.setImage(
                 with: url,
-                placeholder: nil,
+                placeholder: UIImage.init(named: "yaofan1"),
                 options: [.transition(.fade(1)), .loadDiskFileSynchronously],
                 progressBlock: { receivedSize, totalSize in
             },

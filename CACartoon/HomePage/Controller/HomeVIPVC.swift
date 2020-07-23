@@ -78,7 +78,7 @@ extension HomeVIPVC:UCollectionViewSectionBackgroundLayoutDelegateLayout,UIColle
             let url = URL(string: comicList.titleIconUrl!)
             head.iconView.kf.setImage(
                 with: url,
-                placeholder: nil,
+                placeholder: UIImage.init(named: "yaofan1"),
                 options: [.transition(.fade(1)), .loadDiskFileSynchronously],
                 progressBlock: { receivedSize, totalSize in
             },
