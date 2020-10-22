@@ -23,7 +23,7 @@ class HomeCommentVC: UIViewController {
         
         let cycleScrollView = LLCycleScrollView()
         cycleScrollView.backgroundColor = UIColor.background
-        cycleScrollView.placeHolderImage = UIImage(named: "normal_placeholder_h")
+        cycleScrollView.coverImage = UIImage(named: "mine_bg_for_boy")
         cycleScrollView.pageControlBottom = 20
         cycleScrollView.lldidSelectItemAtIndex = didSelectBanner(index:)
         return cycleScrollView
@@ -63,7 +63,7 @@ class HomeCommentVC: UIViewController {
     private func setupLoadData () {
         
         ApiLoadingProvider.request(LBUApi.boutiqueList(sexType: 1), model: LBUBoutiqueListModel.self) {(returnData) in
-            
+            //print("%@",returnData as Any)
             self.galleryItems = returnData?.galleryItems ?? []
             self.textItems = returnData?.textItems ?? []
             self.comicLists = returnData?.comicLists ?? []
